@@ -8,13 +8,34 @@ const INITIAL_STATE = {
 
 // return the updated state according to the action taken
 export default function auth(state = INITIAL_STATE, action) {
-  switch (action.type) {
-    case '@auth/SIGN_IN_SUCCESS':
-      return produce(state, draft => {
+  return produce(state, draft => {
+    switch (action.type) {
+      case '@auth/SIGN_IN_REQUEST': {
+        draft.token = action.payload.token;
+        draft.loading = true;
+        break;
+      }
+      case '@auth/SIGN_UP_REQUEST': {
+        draft.loading = true;
+        break;
+      }
+      case '@auth/SIGN_UP_SUCCESS': {
+        draft.loading = false;
+        break;
+      }
+      case '@auth/SIGN_IN_SUCCESS': {
         draft.token = action.payload.token;
         draft.signed = true;
-      });
-    default:
-      return state;
-  }
+        draft.loading = false;
+        break;
+      }
+
+      case '@auth/SIGN_FAILURE': {
+        draft.loading = false;
+        break;
+      }
+
+      default:
+    }
+  });
 }
