@@ -3,7 +3,7 @@ import { darken } from 'polished';
 
 export const Wrapper = styled.div`
   height: 100%;
-  background-image: linear-gradient(135deg, #fdd819 10%, #e80505 100%);
+  background: #3b2740;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -14,11 +14,6 @@ export const Content = styled.div`
   max-width: 315px;
   text-align: center;
 
-  img {
-    height: 120px;
-    width: 120px;
-  }
-
   form {
     display: flex;
     flex-direction: column;
@@ -27,7 +22,7 @@ export const Content = styled.div`
     input {
       background: rgba(0, 0, 0, 0.1);
       border: 0;
-      border-radius: 22px;
+      border-radius: 4px;
       height: 44px;
       padding: 0 15px;
       color: #fff;
@@ -49,16 +44,16 @@ export const Content = styled.div`
     button {
       margin: 5px 0 0;
       height: 44px;
-      background-image: linear-gradient(135deg, #abdcff 10%, #0396ff 100%);
+      background: #f94d6a;
       font-weight: bold;
       color: #fff;
       border: 0;
-      border-radius: 22px;
+      border-radius: 4px;
       font-size: 16px;
-      transition: background 0.6s;
+      transition: background 0.2s;
 
       &:hover {
-        background: ${darken(0.03, '#ABDCFF')};
+        background: ${darken(0.05, '#f94d6a')};
       }
     }
 
