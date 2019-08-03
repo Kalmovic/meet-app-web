@@ -17,13 +17,15 @@ export default createGlobalStyle`
 
   html, body, #root {
     height: 100%;
+    min-height: 100vh;
   }
 
   body {
+
     -webkit-font-smoothin: antialiased;
   }
 
-  body, input, button {
+  body, input, button, textarea {
     font: 14px 'Quicksand', sans-serif;
   }
 

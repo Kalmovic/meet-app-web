@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { format, parseISO } from 'date-fns';
+import { Link } from 'react-router-dom';
 
 import { Container, Title, List, Meet } from './styles';
 import api from '~/services/api';
@@ -13,7 +14,7 @@ export default function Dashboard() {
 
       const data = response.data.map(meet => ({
         ...meet,
-        formatDate: format(parseISO(meet.date), "MMMM Do',' HH:mm", {
+        formatDate: format(parseISO(meet.date), "MMMM do',' HH:mm", {
           addSufix: true,
         }),
       }));
@@ -27,12 +28,16 @@ export default function Dashboard() {
     <Container>
       <Title>
         <h1>My meetups</h1>
-        <button type="button">New meetup</button>
+        <Link to="/newmeetup">
+          <button to="/newmeetup" type="button">
+            New meetup
+          </button>
+        </Link>
       </Title>
       <List>
         <ul>
           {meetup.map(meet => (
-            <Meet key={meet._id} past={meet.past}>
+            <Meet key={meet.id} past={meet.past}>
               <strong>{meet.title}</strong>
               <span>{meet.formatDate}</span>
             </Meet>
