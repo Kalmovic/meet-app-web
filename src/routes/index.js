@@ -8,6 +8,7 @@ import SignUp from '../pages/SignUp';
 import Dashboard from '../pages/Dashboard';
 import Profile from '../pages/Profile';
 import NewMeetup from '../pages/NewMeetup';
+import ShowMeetup from '../pages/ShowMeetup';
 
 export default function Routes() {
   return (
@@ -18,6 +19,7 @@ export default function Routes() {
       <Route path="/dashboard" component={Dashboard} isPrivate />
       <Route path="/profile" component={Profile} isPrivate />
       <Route path="/newmeetup" component={NewMeetup} isPrivate />
+      <Route path="/meetup/:id" component={ShowMeetup} isPrivate />
 
       <Route path="/" component={() => <h1>404 PAGE NOT FOUND =/</h1>} />
     </Switch>

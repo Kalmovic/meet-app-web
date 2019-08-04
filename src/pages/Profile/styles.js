@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import { darken } from 'polished';
 
 export const Container = styled.div`
+  height: auto;
   max-width: 600px;
   margin: 50px auto;
   text-align: center;

@@ -1,9 +1,8 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import { Form, Input } from '@rocketseat/unform';
 import * as Yup from 'yup';
 import { toast } from 'react-toastify';
-import { parseISO, format } from 'date-fns';
+import { format } from 'date-fns';
 import { Container } from './styles';
 import AvatarInput from './AvatarInput';
 import api from '~/services/api';

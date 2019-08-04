@@ -9,7 +9,7 @@ export default function Dashboard() {
   const [meetup, setMeetup] = useState([]);
 
   useEffect(() => {
-    async function loadMeetup() {
+    async function loadMeetups() {
       const response = await api.get('mymeetups');
 
       const data = response.data.map(meet => ({
@@ -18,11 +18,11 @@ export default function Dashboard() {
           addSufix: true,
         }),
       }));
-      console.tron.log(data);
-      setMeetup(data);
+      setMeetup([...data]);
+      localStorage.setItem('meetup', JSON.stringify(data));
     }
-    loadMeetup();
-  }, [meetup.date]);
+    loadMeetups();
+  }, [meetup, meetup.date]);
 
   return (
     <Container>
@@ -38,7 +38,9 @@ export default function Dashboard() {
         <ul>
           {meetup.map(meet => (
             <Meet key={meet.id} past={meet.past}>
-              <strong>{meet.title}</strong>
+              <Link to={`/meetup/${meet.id}`}>
+                <strong>{meet.title}</strong>
+              </Link>
               <span>{meet.formatDate}</span>
             </Meet>
           ))}
