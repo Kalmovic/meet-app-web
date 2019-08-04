@@ -23,6 +23,9 @@ export const Title = styled.div`
     align-self: flex-end;
 
     #edit {
+      display: flex;
+      align-items: center;
+      justify-content: center;
       width: 150px;
       margin: 5px 10px 0;
       height: 44px;
@@ -34,9 +37,6 @@ export const Title = styled.div`
       font-size: 16px;
       transition: background 0.2s;
 
-      display: flex;
-      align-items: center;
-
       &:hover {
         background: ${darken(0.05, '#3b9eff')};
       }
@@ -44,7 +44,6 @@ export const Title = styled.div`
       div {
         display: flex;
         align-items: center;
-        padding: 12px;
 
         svg {
           margin-right: 5px;
@@ -66,6 +65,7 @@ export const Title = styled.div`
 
       display: flex;
       align-items: center;
+      justify-content: center;
 
       &:hover {
         background: ${darken(0.05, '#f94d6a')};
@@ -74,7 +74,6 @@ export const Title = styled.div`
       div {
         display: flex;
         align-items: center;
-        padding: 12px;
 
         svg {
           margin-right: 5px;
@@ -111,11 +110,31 @@ export const Footer = styled.div`
   #date {
     color: #999;
     font-weight: 400;
+
+    div {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      svg {
+        margin-right: 3px;
+      }
+    }
   }
 
   #location {
     margin-left: 20px;
     color: #999;
     font-weight: 400;
+
+    div {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      svg {
+        margin-right: 3px;
+      }
+    }
   }
 `;

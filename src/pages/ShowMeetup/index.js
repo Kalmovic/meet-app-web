@@ -50,12 +50,16 @@ export default function ShowMeetup({ match }) {
       </Body>
       <Footer>
         <span id="date">
-          <MdEvent size={14} color="#999" />
-          {meetup.formatDate}
+          <div>
+            <MdEvent size={14} color="#999" />
+            {meetup.formatDate}
+          </div>
         </span>
         <span id="location">
-          <MdLocationOn size={14} color="#999" />
-          {meetup.location}
+          <div>
+            <MdLocationOn size={14} color="#999" />
+            {meetup.location}
+          </div>
         </span>
       </Footer>
     </Container>
