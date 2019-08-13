@@ -30,7 +30,9 @@ export default function Profile() {
           type="password"
           placeholder="Confirm new password"
         />
-        <button type="submit">Update profile</button>
+        <button type="submit" id="update">
+          Update profile
+        </button>
       </Form>
     </Container>
   );

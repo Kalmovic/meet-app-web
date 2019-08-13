@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Form, Input } from '@rocketseat/unform';
 import * as Yup from 'yup';
 import { toast } from 'react-toastify';
@@ -50,8 +51,18 @@ export default function NewMeetup() {
         <DatePicker name="date" type="date" placeholder="Select date" />
         <Input name="location" placeholder="Location" />
 
-        <button type="submit">Add new meetup</button>
+        <button type="submit" id="addMeetup">
+          Add new meetup
+        </button>
       </Form>
     </Container>
   );
 }
+
+NewMeetup.propTypes = {
+  match: PropTypes.shape({
+    params: PropTypes.shape({
+      id: PropTypes.string,
+    }),
+  }).isRequired,
+};

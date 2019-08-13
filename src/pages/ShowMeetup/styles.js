@@ -2,7 +2,8 @@ import styled from 'styled-components';
 import { darken } from 'polished';
 
 export const Container = styled.div`
-  height: 100vh;
+  height: auto;
+  min-height: 100%;
   max-width: 910px;
   margin: 50px auto;
   text-align: center;
@@ -94,12 +95,15 @@ export const Body = styled.div`
     background: #1a1823;
     height: 270px;
   }
-  h3 {
+  textarea {
+    background: transparent;
+    border: 0;
     margin-top: 30px;
     justify-content: center;
     text-align: left;
     color: #fff;
     margin: 0 0 10px;
+    resize: none;
   }
 `;
 
@@ -107,6 +111,7 @@ export const Footer = styled.div`
   margin-top: 30px;
   display: flex;
   align-items: left;
+
   #date {
     color: #999;
     font-weight: 400;

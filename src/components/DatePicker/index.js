@@ -33,7 +33,7 @@ export default function DatePicker({ name }) {
         locale="pt-BR"
         showTimeSelect
         timeFormat="p"
-        timeIntervals={15}
+        timeIntervals={30}
         dateFormat="Pp"
         ref={ref}
       />

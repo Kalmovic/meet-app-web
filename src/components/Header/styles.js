@@ -52,7 +52,7 @@ export const Profile = styled.div`
       color: #fff;
     }
   }
-  button {
+  > button {
     margin: 5px 0 0;
     height: 40px;
     width: 80px;

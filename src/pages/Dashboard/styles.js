@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 import { darken } from 'polished';
 
-export const Container = styled.div`
-  height: 100vh;
+export const Content = styled.div`
+  height: 100%;
   max-width: 900px;
   margin: 0 auto;
 `;
@@ -19,7 +19,7 @@ export const Title = styled.div`
     font-size: 30px;
   }
 
-  button {
+  #dashButton {
     margin: 5px 0 0;
     height: 40px;
     width: 140px;

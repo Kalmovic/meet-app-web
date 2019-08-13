@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { format, parseISO } from 'date-fns';
 import { Link } from 'react-router-dom';
 
-import { Container, Title, List, Meet } from './styles';
+import { Content, Title, List, Meet } from './styles';
 import api from '~/services/api';
 
 export default function Dashboard() {
@@ -25,11 +25,11 @@ export default function Dashboard() {
   }, [meetup, meetup.date]);
 
   return (
-    <Container>
+    <Content>
       <Title>
         <h1>My meetups</h1>
         <Link to="/newmeetup">
-          <button to="/newmeetup" type="button">
+          <button to="/newmeetup" type="button" id="dashButton">
             New meetup
           </button>
         </Link>
@@ -46,6 +46,6 @@ export default function Dashboard() {
           ))}
         </ul>
       </List>
-    </Container>
+    </Content>
   );
 }

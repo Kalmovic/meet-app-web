@@ -41,7 +41,7 @@ export const Container = styled.div`
       margin-bottom: 10px;
     }
 
-    button {
+    #update {
       display: block;
       align-self: flex-end;
       width: 200px;

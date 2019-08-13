@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { parseISO, format } from 'date-fns';
 import { MdEdit, MdDeleteForever, MdEvent, MdLocationOn } from 'react-icons/md';
@@ -43,12 +44,14 @@ export default function ShowMeetup({ match }) {
       <Title>
         <h1>{meetup.title}</h1>
         <nav>
-          <button id="edit" type="button">
-            <div>
-              <MdEdit size={18} color="#fff" />
-              Edit
-            </div>
-          </button>
+          <Link to={`/editmeetup/${meetId}`}>
+            <button id="edit" type="button">
+              <div>
+                <MdEdit size={18} color="#fff" />
+                Edit
+              </div>
+            </button>
+          </Link>
           <button id="delete" type="button" onClick={handleDelete}>
             <div>
               <MdDeleteForever size={18} color="#fff" />
@@ -59,7 +62,7 @@ export default function ShowMeetup({ match }) {
       </Title>
       <Body>
         <img src={meetup.url} alt={meetup.title} />
-        <h3>{meetup.description}</h3>
+        <textarea>{meetup.description}</textarea>
       </Body>
       <Footer>
         <span id="date">
@@ -78,3 +81,11 @@ export default function ShowMeetup({ match }) {
     </Container>
   );
 }
+
+ShowMeetup.propTypes = {
+  match: PropTypes.shape({
+    params: PropTypes.shape({
+      id: PropTypes.string,
+    }),
+  }).isRequired,
+};

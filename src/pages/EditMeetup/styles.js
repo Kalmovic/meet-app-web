@@ -50,25 +50,29 @@ export const Container = styled.div`
       margin: 0 15px 10px;
       font-weight: bold;
     }
+  }
+`;
 
-    #addMeetup {
-      display: block;
-      align-self: flex-end;
-      width: 200px;
-      margin: 5px 0 0;
-      height: 44px;
-      background: #f94d6a;
-      font-weight: bold;
-      color: #fff;
-      border: 0;
-      border-radius: 4px;
-      font-size: 16px;
-      transition: background 0.2s;
-      margin-bottom: 50px;
+export const Footer = styled.div`
+  display: flex;
+  align-self: flex-end;
+  margin-block-end: 50px;
 
-      &:hover {
-        background: ${darken(0.05, '#f94d6a')};
-      }
+  #save {
+    width: 150px;
+    display: block;
+    margin: 5px 0 0;
+    height: 44px;
+    background: #f94d6a;
+    font-weight: bold;
+    color: #fff;
+    border: 0;
+    border-radius: 4px;
+    font-size: 16px;
+    transition: background 0.2s;
+
+    &:hover {
+      background: ${darken(0.05, '#f94d6a')};
     }
   }
 `;
