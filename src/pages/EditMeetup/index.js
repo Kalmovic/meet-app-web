@@ -69,12 +69,7 @@ export default function EditMeetup({ match }) {
           imageID={meetup.file_id}
         />
         <Input name="title" placeholder="Meetup's title" />
-        <Input
-          name="description"
-          type="text"
-          multiline
-          placeholder="description"
-        />
+        <Input name="description" type="text" placeholder="description" />
         <DatePicker name="date" type="date" />
         <Input name="location" placeholder="Location" />
 

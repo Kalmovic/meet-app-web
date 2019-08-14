@@ -95,13 +95,13 @@ export const Body = styled.div`
     background: #1a1823;
     height: 270px;
   }
-  textarea {
+  span {
+    color: #fff;
     background: transparent;
     border: 0;
     margin-top: 30px;
     justify-content: center;
     text-align: left;
-    color: #fff;
     margin: 0 0 10px;
     resize: none;
   }

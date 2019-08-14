@@ -62,7 +62,7 @@ export default function ShowMeetup({ match }) {
       </Title>
       <Body>
         <img src={meetup.url} alt={meetup.title} />
-        <textarea>{meetup.description}</textarea>
+        <span>{meetup.description}</span>
       </Body>
       <Footer>
         <span id="date">

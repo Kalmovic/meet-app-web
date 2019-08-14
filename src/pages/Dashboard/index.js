@@ -18,18 +18,18 @@ export default function Dashboard() {
           addSufix: true,
         }),
       }));
-      setMeetup([...data]);
+      setMeetup(data);
       localStorage.setItem('meetup', JSON.stringify(data));
     }
     loadMeetups();
-  }, [meetup, meetup.date]);
+  }, []);
 
   return (
     <Content>
       <Title>
         <h1>My meetups</h1>
-        <Link to="/newmeetup">
-          <button to="/newmeetup" type="button" id="dashButton">
+        <Link to="/addedit/">
+          <button type="button" id="dashButton">
             New meetup
           </button>
         </Link>
