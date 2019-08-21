@@ -10,7 +10,6 @@ import Profile from '../pages/Profile';
 import NewMeetup from '../pages/NewMeetup';
 import ShowMeetup from '../pages/ShowMeetup';
 import EditMeetup from '../pages/EditMeetup';
-import AddEditMeetup from '../pages/AddEditMeetup';
 
 export default function Routes() {
   return (
@@ -23,8 +22,6 @@ export default function Routes() {
       <Route path="/newmeetup" component={NewMeetup} isPrivate />
       <Route path="/editmeetup/:id" component={EditMeetup} isPrivate />
       <Route path="/meetup/:id" component={ShowMeetup} isPrivate />
-      <Route path="/addedit" exact component={AddEditMeetup} isPrivate />
-      <Route path="/addedit/:id" exact component={AddEditMeetup} isPrivate />
 
       <Route path="/" component={() => <h1>404 PAGE NOT FOUND =/</h1>} />
     </Switch>
