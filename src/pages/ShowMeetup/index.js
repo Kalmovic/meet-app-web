@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { parseISO, format } from 'date-fns';
 import { MdEdit, MdDeleteForever, MdEvent, MdLocationOn } from 'react-icons/md';
 import { toast } from 'react-toastify';
-import { Container, Title, Footer, Body } from './styles';
+import { Container, Title, Footer, Body, Desc } from './styles';
 import api from '~/services/api';
 import history from '~/services/history';
 
@@ -21,6 +21,7 @@ export default function ShowMeetup({ match }) {
         formatDate: format(parseISO(response.data.date), "MMMM do',' HH:mm", {
           addSufix: true,
         }),
+        desc: response.data.description.split('\n'),
       };
       console.tron.log(response);
       setMeetup(data);
@@ -62,8 +63,10 @@ export default function ShowMeetup({ match }) {
       </Title>
       <Body>
         <img src={meetup.url} alt={meetup.title} />
-        <span>{meetup.description}</span>
       </Body>
+      <Desc>
+        <p>{meetup.desc}</p>
+      </Desc>
       <Footer>
         <span id="date">
           <div>

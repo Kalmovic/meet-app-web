@@ -6,7 +6,7 @@ export const Container = styled.div`
   min-height: 100%;
   max-width: 910px;
   margin: 50px auto;
-  text-align: center;
+  margin-bottom: 0;
 `;
 
 export const Title = styled.div`
@@ -95,12 +95,14 @@ export const Body = styled.div`
     background: #1a1823;
     height: 270px;
   }
-  span {
+`;
+
+export const Desc = styled.div`
+  p {
     color: #fff;
     background: transparent;
     border: 0;
     margin-top: 30px;
-    justify-content: center;
     text-align: left;
     margin: 0 0 10px;
     resize: none;

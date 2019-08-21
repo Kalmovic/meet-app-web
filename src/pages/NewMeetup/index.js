@@ -4,7 +4,7 @@ import { Form, Input } from '@rocketseat/unform';
 import * as Yup from 'yup';
 import { toast } from 'react-toastify';
 import { format } from 'date-fns';
-import { Container } from './styles';
+import { Container, Content } from './styles';
 import AvatarInput from './AvatarInput';
 import api from '~/services/api';
 import history from '~/services/history';
@@ -43,19 +43,21 @@ export default function NewMeetup() {
   }
 
   return (
-    <Container>
-      <Form schema={schema} onSubmit={addMeetup}>
-        <AvatarInput name="avatar_id" />
-        <Input name="title" placeholder="Meetup's title" />
-        <Input multiline name="description" placeholder="Full description" />
-        <DatePicker name="date" type="date" placeholder="Select date" />
-        <Input name="location" placeholder="Location" />
+    <Content>
+      <Container>
+        <Form schema={schema} onSubmit={addMeetup}>
+          <AvatarInput name="avatar_id" />
+          <Input name="title" placeholder="Meetup's title" />
+          <Input multiline name="description" placeholder="Full description" />
+          <DatePicker name="date" type="date" placeholder="Select date" />
+          <Input name="location" placeholder="Location" />
 
-        <button type="submit" id="addMeetup">
-          Add new meetup
-        </button>
-      </Form>
-    </Container>
+          <button type="submit" id="addMeetup">
+            Add new meetup
+          </button>
+        </Form>
+      </Container>
+    </Content>
   );
 }
 

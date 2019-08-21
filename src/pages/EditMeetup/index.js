@@ -4,7 +4,7 @@ import { Form, Input } from '@rocketseat/unform';
 import * as Yup from 'yup';
 import { toast } from 'react-toastify';
 import { format, parseISO } from 'date-fns';
-import { Container, Footer } from './styles';
+import { Container, Footer, Content } from './styles';
 import AvatarInput from './AvatarInput';
 import api from '~/services/api';
 import history from '~/services/history';
@@ -20,7 +20,8 @@ const schema = Yup.object().shape({
 
 export default function EditMeetup({ match }) {
   const [meetId] = useState(match.params.id);
-  const [meetup, setMeetup] = useState([]);
+  const [meetup, setMeetup] = useState({});
+  const [date, setDate] = useState(new Date());
 
   useEffect(() => {
     async function loadMeetup() {
@@ -33,6 +34,7 @@ export default function EditMeetup({ match }) {
         }),
       };
       setMeetup(data);
+      setDate(data.dateFormat);
     }
     loadMeetup();
   }, [meetId]);
@@ -40,7 +42,7 @@ export default function EditMeetup({ match }) {
   async function editMeetup(data) {
     console.tron.log(data);
 
-    const date = format(data.date, "yyyy'-'MM'-'d'T'HH:mm:ssxxx");
+    const dateF = format(data.date, "yyyy'-'MM'-'d'T'HH:mm:ssxxx");
     const file_id = data.avatar_id;
     const { title, description, location } = data;
     console.tron.log({ file_id, date });
@@ -49,7 +51,7 @@ export default function EditMeetup({ match }) {
         file_id,
         title,
         description,
-        date,
+        date: dateF,
         location,
       });
       toast.success('Meetup saved!');
@@ -61,25 +63,27 @@ export default function EditMeetup({ match }) {
   }
 
   return (
-    <Container>
-      <Form schema={schema} onSubmit={editMeetup} initialData={meetup}>
-        <AvatarInput
-          name="avatar_id"
-          image={meetup.url}
-          imageID={meetup.file_id}
-        />
-        <Input name="title" placeholder="Meetup's title" />
-        <Input name="description" type="text" placeholder="description" />
-        <DatePicker name="date" type="date" />
-        <Input name="location" placeholder="Location" />
+    <Content>
+      <Container>
+        <Form schema={schema} onSubmit={editMeetup} initialData={meetup}>
+          <AvatarInput
+            name="avatar_id"
+            image={meetup.url}
+            imageID={meetup.file_id}
+          />
+          <Input name="title" placeholder="Meetup's title" />
+          <Input name="description" placeholder="description" rows={5} />
+          <DatePicker name="date" placeholder="Data" />
+          <Input name="location" placeholder="Location" />
 
-        <Footer>
-          <button type="submit" id="save">
-            Save meetup
-          </button>
-        </Footer>
-      </Form>
-    </Container>
+          <Footer>
+            <button type="submit" id="save">
+              Save meetup
+            </button>
+          </Footer>
+        </Form>
+      </Container>
+    </Content>
   );
 }
 

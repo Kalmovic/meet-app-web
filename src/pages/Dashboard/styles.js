@@ -47,10 +47,11 @@ export const Meet = styled.button`
   width: 100%;
   margin-bottom: 5px;
   display: flex;
-  padding: 10px 20px;
+  padding: 15px 20px;
   border-radius: 4px;
   background: #2b1c31;
   justify-content: space-between;
+  opacity: ${props => (props.enabled ? 0.6 : 1)};
 
   strong {
     color: #fff;
@@ -58,5 +59,14 @@ export const Meet = styled.button`
 
   span {
     color: #eee;
+  }
+
+  div {
+    display: flex;
+    align-items: center;
+
+    svg {
+      margin-right: 5px;
+    }
   }
 `;

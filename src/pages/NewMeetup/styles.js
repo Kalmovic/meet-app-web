@@ -1,11 +1,16 @@
 import styled from 'styled-components';
 import { darken } from 'polished';
 
-export const Container = styled.div`
+export const Content = styled.div`
   height: auto;
+  padding: 0 30px;
+`;
+
+export const Container = styled.div`
   min-height: 100%;
   max-width: 910px;
   margin: 50px auto;
+  margin-bottom: 0;
   text-align: center;
 
   form {

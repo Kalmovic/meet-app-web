@@ -1,14 +1,19 @@
 import styled from 'styled-components';
 import { darken } from 'polished';
 
-export const Container = styled.div`
+export const Content = styled.div`
   height: auto;
-  min-height: 100%;
-  max-width: 910px;
+  padding: 0 30px;
+`;
+
+export const Container = styled.div`
+  max-width: 900px;
   margin: 50px auto;
+  margin-bottom: 0;
   text-align: center;
 
   form {
+    max-width: 910px;
     display: flex;
     flex-direction: column;
 
@@ -58,7 +63,7 @@ export const Footer = styled.div`
   align-self: flex-end;
   margin-block-end: 50px;
 
-  #save {
+  > button {
     width: 150px;
     display: block;
     margin: 5px 0 0;

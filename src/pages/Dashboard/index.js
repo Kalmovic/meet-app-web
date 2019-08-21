@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { format, parseISO } from 'date-fns';
 import { Link } from 'react-router-dom';
 
+import { MdKeyboardArrowRight } from 'react-icons/md';
+
 import { Content, Title, List, Meet } from './styles';
 import api from '~/services/api';
 
@@ -28,7 +30,7 @@ export default function Dashboard() {
     <Content>
       <Title>
         <h1>My meetups</h1>
-        <Link to="/addedit/">
+        <Link to="/newmeetup">
           <button type="button" id="dashButton">
             New meetup
           </button>
@@ -37,12 +39,27 @@ export default function Dashboard() {
       <List>
         <ul>
           {meetup.map(meet => (
-            <Meet key={meet.id} past={meet.past}>
-              <Link to={`/meetup/${meet.id}`}>
-                <strong>{meet.title}</strong>
-              </Link>
-              <span>{meet.formatDate}</span>
-            </Meet>
+            <>
+              {meet.past ? (
+                <Meet key={meet.id} enabled={meet.past}>
+                  <strong>{meet.title}</strong>
+                  <div>
+                    <span>{meet.formatDate}</span>
+                    <MdKeyboardArrowRight size={20} color="#eee" />
+                  </div>
+                </Meet>
+              ) : (
+                <Link to={`/meetup/${meet.id}`}>
+                  <Meet key={meet.id} enabled={meet.past}>
+                    <strong>{meet.title}</strong>
+                    <div>
+                      <span>{meet.formatDate}</span>
+                      <MdKeyboardArrowRight size={20} color="#eee" />
+                    </div>
+                  </Meet>
+                </Link>
+              )}
+            </>
           ))}
         </ul>
       </List>

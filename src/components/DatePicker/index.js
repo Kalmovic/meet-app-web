@@ -3,12 +3,12 @@ import ReactDatePicker, { registerLocale } from 'react-datepicker';
 import ptBR from 'date-fns/locale/pt-BR';
 
 import { useField } from '@rocketseat/unform';
-
+import './styles.css';
 import 'react-datepicker/dist/react-datepicker.css';
 
 registerLocale('pt-BR', ptBR);
 
-export default function DatePicker({ name }) {
+export default function DatePicker({ name, placeholder }) {
   const ref = useRef(null);
   const { fieldName, registerField, defaultValue, error } = useField(name);
   const [selected, setSelected] = useState(defaultValue);
@@ -22,7 +22,8 @@ export default function DatePicker({ name }) {
         pickerRef.clear();
       },
     });
-  }, [fieldName, registerField]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [ref.current, fieldName]);
 
   return (
     <>
@@ -30,12 +31,14 @@ export default function DatePicker({ name }) {
         name={fieldName}
         selected={selected}
         onChange={date => setSelected(date)}
-        locale="pt-BR"
+        minDate={new Date()}
         showTimeSelect
-        timeFormat="p"
-        timeIntervals={30}
-        dateFormat="Pp"
+        timeFormat="HH:mm"
+        dateFormat="dd/MM/yyyy - HH:mm"
         ref={ref}
+        autoComplete="off"
+        locale={ptBR}
+        placeholderText={placeholder}
       />
       {error && <span>{error}</span>}
     </>
